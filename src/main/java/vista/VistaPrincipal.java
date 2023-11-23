@@ -88,6 +88,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
 
         rbSubs1.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
         rbSubs1.setText("Suscrito");
+        rbSubs1.setEnabled(false);
         rbSubs1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rbSubs1ActionPerformed(evt);
@@ -100,6 +101,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
 
         rbSubs3.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
         rbSubs3.setText("Suscrito");
+        rbSubs3.setEnabled(false);
         rbSubs3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rbSubs3ActionPerformed(evt);
@@ -108,6 +110,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
 
         rbSubs2.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
         rbSubs2.setText("Suscrito");
+        rbSubs2.setEnabled(false);
         rbSubs2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rbSubs2ActionPerformed(evt);
@@ -116,6 +119,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
 
         rbSubs4.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
         rbSubs4.setText("Suscrito");
+        rbSubs4.setEnabled(false);
         rbSubs4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rbSubs4ActionPerformed(evt);
@@ -124,6 +128,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
 
         rbSubs5.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
         rbSubs5.setText("Suscrito");
+        rbSubs5.setEnabled(false);
         rbSubs5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rbSubs5ActionPerformed(evt);
@@ -137,6 +142,11 @@ public class VistaPrincipal extends javax.swing.JFrame {
 
         lblValorTemp.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
         lblValorTemp.setToolTipText("");
+        lblValorTemp.addContainerListener(new java.awt.event.ContainerAdapter() {
+            public void componentAdded(java.awt.event.ContainerEvent evt) {
+                lblValorTempComponentAdded(evt);
+            }
+        });
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sources/personaA.png"))); // NOI18N
 
@@ -232,19 +242,18 @@ public class VistaPrincipal extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(lblTermometro, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(sldTemperatura, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(34, 34, 34)
-                                .addComponent(lblValorTemp, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel5)))))
+                                .addComponent(jLabel4))
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(lblTermometro, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(sldTemperatura, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
+                            .addComponent(lblValorTemp, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(17, Short.MAX_VALUE))
         );
 
@@ -270,43 +279,47 @@ public class VistaPrincipal extends javax.swing.JFrame {
 
     private void rbSubs1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbSubs1ActionPerformed
         if (suscripcion()== false) {
-            rbSubs1.setVisible(true);
+            rbSubs1.setSelected(true);
         } else {
-            rbSubs1.setVisible(false);
+            rbSubs1.setSelected(false);
         }
     }//GEN-LAST:event_rbSubs1ActionPerformed
 
     private void rbSubs3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbSubs3ActionPerformed
         if (suscripcion()== false) {
-            rbSubs2.setVisible(true);
+            rbSubs2.setSelected(true);
         } else {
-            rbSubs2.setVisible(false);
+            rbSubs2.setSelected(false);
         }
     }//GEN-LAST:event_rbSubs3ActionPerformed
 
     private void rbSubs2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbSubs2ActionPerformed
         if (suscripcion()== false) {
-            rbSubs3.setVisible(true);
+            rbSubs3.setSelected(true);
         } else {
-            rbSubs3.setVisible(false);
+            rbSubs3.setSelected(false);
         }
     }//GEN-LAST:event_rbSubs2ActionPerformed
 
     private void rbSubs4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbSubs4ActionPerformed
         if (suscripcion()== false) {
-            rbSubs4.setVisible(true);
+            rbSubs4.setSelected(true);
         } else {
-            rbSubs5.setVisible(false);
+            rbSubs5.setSelected(false);
         }
     }//GEN-LAST:event_rbSubs4ActionPerformed
 
     private void rbSubs5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbSubs5ActionPerformed
         if (suscripcion()== false) {
-            rbSubs5.setVisible(true);
+            rbSubs5.setSelected(true);
         } else {
-            rbSubs5.setVisible(false);
+            rbSubs5.setSelected(false);
         }
     }//GEN-LAST:event_rbSubs5ActionPerformed
+
+    private void lblValorTempComponentAdded(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_lblValorTempComponentAdded
+        cambiarEstadoTermometro(lblValorTemp, sldTemperatura);
+    }//GEN-LAST:event_lblValorTempComponentAdded
 
     /**
      * @param args the command line arguments
