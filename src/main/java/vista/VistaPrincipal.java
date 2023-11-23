@@ -269,23 +269,43 @@ public class VistaPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void rbSubs1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbSubs1ActionPerformed
-        // TODO add your handling code here:
+        if (suscripcion()== false) {
+            rbSubs1.setVisible(true);
+        } else {
+            rbSubs1.setVisible(false);
+        }
     }//GEN-LAST:event_rbSubs1ActionPerformed
 
     private void rbSubs3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbSubs3ActionPerformed
-        // TODO add your handling code here:
+        if (suscripcion()== false) {
+            rbSubs2.setVisible(true);
+        } else {
+            rbSubs2.setVisible(false);
+        }
     }//GEN-LAST:event_rbSubs3ActionPerformed
 
     private void rbSubs2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbSubs2ActionPerformed
-        // TODO add your handling code here:
+        if (suscripcion()== false) {
+            rbSubs3.setVisible(true);
+        } else {
+            rbSubs3.setVisible(false);
+        }
     }//GEN-LAST:event_rbSubs2ActionPerformed
 
     private void rbSubs4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbSubs4ActionPerformed
-        // TODO add your handling code here:
+        if (suscripcion()== false) {
+            rbSubs4.setVisible(true);
+        } else {
+            rbSubs5.setVisible(false);
+        }
     }//GEN-LAST:event_rbSubs4ActionPerformed
 
     private void rbSubs5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbSubs5ActionPerformed
-        // TODO add your handling code here:
+        if (suscripcion()== false) {
+            rbSubs5.setVisible(true);
+        } else {
+            rbSubs5.setVisible(false);
+        }
     }//GEN-LAST:event_rbSubs5ActionPerformed
 
     /**
@@ -325,6 +345,15 @@ public class VistaPrincipal extends javax.swing.JFrame {
     
     public void cambiarEstadoTermometro(JLabel lblValorTemp, JSlider sldTemperatura){
         lblValorTemp.setText("El valor del deslizador es: " + sldTemperatura.getValue());
+    }
+    
+    public boolean suscripcion(){
+        sujetoConcreto.suscribirObservador(observadorConcreto);
+        if (sujetoConcreto == null) {
+            return false;
+        } else {
+            return true;
+        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
