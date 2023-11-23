@@ -4,10 +4,27 @@
  */
 package observer;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author casa
  */
-public class SujetoConcreto {
+public class SujetoConcreto implements ISujeto {
+
+    private List<IObserver> listaObservadores = new ArrayList<>();
+            
+    @Override
+    public void suscribirObservador(IObserver observador) {
+        listaObservadores.add(observador);
+    }
+
+    @Override
+    public void notificarObservador(String mensaje) {
+        for (IObserver observador : listaObservadores) {
+            observador.actualizar(mensaje);
+        }
+    }
     
 }

@@ -9,5 +9,6 @@ package observer;
  * @author casa
  */
 public interface ISujeto {
-    
+    public void suscribirObservador(IObserver observador);
+    public void notificarObservador(String mensaje);
 }

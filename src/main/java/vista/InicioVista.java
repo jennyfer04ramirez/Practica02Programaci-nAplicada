@@ -8,7 +8,7 @@ package vista;
  *
  * @author casa
  */
-public class BarzalloMJ_RamirezJC_Practica2 {
+public class InicioVista {
 
     public static void main(String[] args) {
         System.out.println("Hello World!");

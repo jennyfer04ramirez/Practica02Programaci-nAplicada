@@ -9,5 +9,5 @@ package observer;
  * @author casa
  */
 public interface IObserver {
-    
+    public void actualizar(String mensaje);
 }
