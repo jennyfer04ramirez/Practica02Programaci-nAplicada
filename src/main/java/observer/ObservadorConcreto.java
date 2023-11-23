@@ -12,6 +12,9 @@ public class ObservadorConcreto implements IObserver {
 
     private String nombre;
 
+    public ObservadorConcreto() {
+    }
+
     public ObservadorConcreto(String nombre) {
         this.nombre = nombre;
     }
