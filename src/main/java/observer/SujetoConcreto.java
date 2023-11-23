@@ -26,5 +26,10 @@ public class SujetoConcreto implements ISujeto {
             observador.actualizar(mensaje);
         }
     }
+
+    @Override
+    public void desuscribirObservador(IObserver observador) {
+        listaObservadores.remove(observador);
+    }
     
 }

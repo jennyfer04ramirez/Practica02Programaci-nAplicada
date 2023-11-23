@@ -11,4 +11,5 @@ package observer;
 public interface ISujeto {
     public void suscribirObservador(IObserver observador);
     public void notificarObservador(String mensaje);
+    public void desuscribirObservador(IObserver observador);
 }
