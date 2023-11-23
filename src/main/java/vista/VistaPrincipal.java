@@ -6,6 +6,8 @@ package vista;
 
 import javax.swing.JLabel;
 import javax.swing.JSlider;
+import observer.ObservadorConcreto;
+import observer.SujetoConcreto;
 
 /**
  *
@@ -13,11 +15,16 @@ import javax.swing.JSlider;
  */
 public class VistaPrincipal extends javax.swing.JFrame {
 
+    private ObservadorConcreto observadorConcreto;
+    private SujetoConcreto sujetoConcreto;
+            
     /**
      * Creates new form VistaPrincipal
      */
     public VistaPrincipal() {
         initComponents();
+        observadorConcreto = new ObservadorConcreto();
+        sujetoConcreto = new SujetoConcreto();
     }
 
     /**
@@ -36,18 +43,18 @@ public class VistaPrincipal extends javax.swing.JFrame {
         lblMensaje5 = new javax.swing.JLabel();
         lblMensaje4 = new javax.swing.JLabel();
         rbSubs1 = new javax.swing.JRadioButton();
-        lblSubs2 = new javax.swing.JLabel();
-        lblSubs3 = new javax.swing.JLabel();
-        lblSubs4 = new javax.swing.JLabel();
-        lblSubs5 = new javax.swing.JLabel();
         lblTermometro = new javax.swing.JLabel();
         rbSubs3 = new javax.swing.JRadioButton();
         rbSubs2 = new javax.swing.JRadioButton();
         rbSubs4 = new javax.swing.JRadioButton();
         rbSubs5 = new javax.swing.JRadioButton();
-        lblSubs1 = new javax.swing.JLabel();
         sldTemperatura = new javax.swing.JSlider();
         lblValorTemp = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -57,22 +64,27 @@ public class VistaPrincipal extends javax.swing.JFrame {
         lblMensaje1.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
         lblMensaje1.setText("Aquí se mostrara si tiene un mensaje o no");
         lblMensaje1.setToolTipText("");
+        lblMensaje1.setEnabled(false);
 
         lblMensaje2.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
         lblMensaje2.setText("Aquí se mostrara si tiene un mensaje o no");
         lblMensaje2.setToolTipText("");
+        lblMensaje2.setEnabled(false);
 
         lblMensaje3.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
         lblMensaje3.setText("Aquí se mostrara si tiene un mensaje o no");
         lblMensaje3.setToolTipText("");
+        lblMensaje3.setEnabled(false);
 
         lblMensaje5.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
         lblMensaje5.setText("Aquí se mostrara si tiene un mensaje o no");
         lblMensaje5.setToolTipText("");
+        lblMensaje5.setEnabled(false);
 
         lblMensaje4.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
         lblMensaje4.setText("Aquí se mostrara si tiene un mensaje o no");
         lblMensaje4.setToolTipText("");
+        lblMensaje4.setEnabled(false);
 
         rbSubs1.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
         rbSubs1.setText("Suscrito");
@@ -81,18 +93,6 @@ public class VistaPrincipal extends javax.swing.JFrame {
                 rbSubs1ActionPerformed(evt);
             }
         });
-
-        lblSubs2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sources/personaB.png"))); // NOI18N
-
-        lblSubs3.setBackground(new java.awt.Color(255, 255, 255));
-        lblSubs3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblSubs3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sources/personaC.png"))); // NOI18N
-        lblSubs3.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-
-        lblSubs4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sources/personaD.png"))); // NOI18N
-
-        lblSubs5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblSubs5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sources/personaE.png"))); // NOI18N
 
         lblTermometro.setForeground(new java.awt.Color(255, 255, 255));
         lblTermometro.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -130,8 +130,6 @@ public class VistaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        lblSubs1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sources/personaA.png"))); // NOI18N
-
         sldTemperatura.setMajorTickSpacing(10);
         sldTemperatura.setOrientation(javax.swing.JSlider.VERTICAL);
         sldTemperatura.setPaintLabels(true);
@@ -140,55 +138,65 @@ public class VistaPrincipal extends javax.swing.JFrame {
         lblValorTemp.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
         lblValorTemp.setToolTipText("");
 
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sources/personaA.png"))); // NOI18N
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sources/personaB.png"))); // NOI18N
+
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sources/personaC.png"))); // NOI18N
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sources/personaD.png"))); // NOI18N
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sources/personaE.png"))); // NOI18N
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(15, 15, 15)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblSubs5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblSubs4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblSubs3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(rbSubs3)
-                                .addGap(66, 66, 66)
-                                .addComponent(lblMensaje3))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(rbSubs5)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(lblMensaje5))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(rbSubs4)
-                                .addGap(66, 66, 66)
-                                .addComponent(lblMensaje4))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(lblSubs2)
-                                .addGap(18, 18, 18)
+                                .addComponent(jLabel2)
+                                .addGap(21, 21, 21)
                                 .addComponent(rbSubs2))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(lblSubs1)
+                                .addComponent(jLabel1)
                                 .addGap(18, 18, 18)
                                 .addComponent(rbSubs1)))
                         .addGap(66, 66, 66)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblMensaje1)
-                            .addComponent(lblMensaje2))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addGap(72, 72, 72)
+                            .addComponent(lblMensaje2)))
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5))
+                        .addGap(22, 22, 22)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(rbSubs5)
+                                .addGap(66, 66, 66)
+                                .addComponent(lblMensaje5))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(rbSubs4)
+                                .addGap(66, 66, 66)
+                                .addComponent(lblMensaje4))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(rbSubs3)
+                                .addGap(66, 66, 66)
+                                .addComponent(lblMensaje3)))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(sldTemperatura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(63, 63, 63)
+                        .addGap(49, 49, 49)
                         .addComponent(lblTermometro, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(lblValorTemp, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(40, 40, 40))
+                .addGap(48, 48, 48))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -198,45 +206,46 @@ public class VistaPrincipal extends javax.swing.JFrame {
                         .addGap(42, 42, 42)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(rbSubs1)
-                            .addComponent(lblMensaje1))
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(67, 67, 67)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(rbSubs2)
-                                    .addComponent(lblMensaje2))
-                                .addGap(74, 74, 74)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(rbSubs3)
-                                    .addComponent(lblMensaje3))
-                                .addGap(72, 72, 72)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(rbSubs4)
-                                    .addComponent(lblMensaje4))
-                                .addGap(75, 75, 75))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(lblTermometro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(sldTemperatura, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(34, 34, 34)
-                                .addComponent(lblValorTemp, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(3, 3, 3)))
+                            .addComponent(lblMensaje1)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel1)))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(43, 43, 43)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(rbSubs2)
+                            .addComponent(lblMensaje2))
+                        .addGap(67, 67, 67)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(rbSubs3)
+                            .addComponent(lblMensaje3))
+                        .addGap(72, 72, 72)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(rbSubs4)
+                            .addComponent(lblMensaje4))
+                        .addGap(73, 73, 73)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(rbSubs5)
                             .addComponent(lblMensaje5)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(lblSubs1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblSubs2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblSubs3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblSubs4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblSubs5)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(lblTermometro, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(sldTemperatura, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(34, 34, 34)
+                                .addComponent(lblValorTemp, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel5)))))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -319,17 +328,17 @@ public class VistaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblMensaje1;
     private javax.swing.JLabel lblMensaje2;
     private javax.swing.JLabel lblMensaje3;
     private javax.swing.JLabel lblMensaje4;
     private javax.swing.JLabel lblMensaje5;
-    private javax.swing.JLabel lblSubs1;
-    private javax.swing.JLabel lblSubs2;
-    private javax.swing.JLabel lblSubs3;
-    private javax.swing.JLabel lblSubs4;
-    private javax.swing.JLabel lblSubs5;
     private javax.swing.JLabel lblTermometro;
     private javax.swing.JLabel lblValorTemp;
     private javax.swing.JRadioButton rbSubs1;
